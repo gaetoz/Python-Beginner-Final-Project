@@ -1,0 +1,31 @@
+def adding_report(report="T"):
+    report = input('Choose report type ("A" or "T"): ')
+    print('Report type include All Items ("A") or Total Only ("T")')
+    total = 0
+    score = ""
+    items = ""
+    while score.lower().startswith('q') != True:     
+        score = input("Enter an 'Integer' or 'Q' to quit: ")
+        if report == "T":
+            if score.isdigit() == True:
+                total += int(score)
+            elif score.lower().startswith('q') == True:  
+                print("\nTOTAL")
+                print(total) 
+                break
+            else:                              
+                print("input is invalid")
+        elif report == "A":    
+            while score.isdigit() == True:  
+                total += int(score)
+                items += score + "\n"
+                score = input("Enter an 'Integer' or 'Q' to quit: ")
+            if score.lower().startswith('q') == True:
+                print("\nITEMS")
+                print(items)   
+                print("\nTOTAL")
+                print(total)
+                break
+            else:                               
+                print("input is invalid")     
+adding_report()
